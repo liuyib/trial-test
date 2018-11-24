@@ -18,3 +18,9 @@ test.set('a', 100);
 ```js
 test.get('a')
 ```
+
+## 清空
+
+```js
+test.clear()
+```

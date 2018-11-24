@@ -10,6 +10,16 @@ class OpenSourceTest {
   get(key) {
     return this.test[key];
   }
+
+  example() {
+    this.test = {
+      'arr': [0, 1, 2, 3, 4, 5, 6]
+    };
+  }
+
+  clear() {
+    this.test = {};
+  }
 }
 
 window.OpenSourceTest = OpenSourceTest;

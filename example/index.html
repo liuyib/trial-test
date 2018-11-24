@@ -13,9 +13,14 @@
   <script src="../release/bundle.js"></script>
   <script>
     var OST = window.OpenSourceTest;
-    var test = new OST();
-    test.set('a', 100);
-    alert(test.get('a'));
+    var ost = new OST();
+    ost.set('a', 100);         // 设置a属性的值为100
+    console.log(ost.get('a')); // 100
+    ost.clear()                // 清空a属性的值
+    console.log(ost.get('a')); // undefined
+    
+    ost.example();             // 创建一个arr属性，存放一个0~6的数组
+    console.log(ost.get('arr'));
   </script>
 </body>
 </html>

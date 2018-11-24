@@ -7,6 +7,8 @@ test
 ## 安装下载
 
 - [github](https://github.com/liuyib/openSource-test/releases)
+- npm: `npm i opensource-test`
+- [CDN](http://unpkg.com/opensource-test/release/bundle.js)
 
 ## 快速使用
 [使用文档](./doc/use/README.md)
