@@ -1,6 +1,8 @@
 # openSource-test
 开源项目开发流程测试
 
+[![codebeat badge](https://codebeat.co/badges/4d281d68-3d40-4228-865d-e280c7703eaf)](https://codebeat.co/projects/github-com-liuyib-opensource-test-master)
+
 ## 商品简介
 test
 
@@ -11,6 +13,7 @@ test
 - [CDN](http://unpkg.com/opensource-test/release/bundle.js)
 
 ## 快速使用
+
 [使用文档](./doc/use/README.md)
 [二次开发文档](./doc/dev/README.md)
 

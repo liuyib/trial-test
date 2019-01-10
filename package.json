@@ -1,13 +1,12 @@
 {
   "name": "opensource-test",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "开源项目开发流程测试",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "example": "live-server"
+    "test": "live-server"
   },
   "babel": {
     "presets": [
