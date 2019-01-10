@@ -1,12 +1,12 @@
 # openSource-test
 
-<p align="center">
-  <a href="https://codebeat.co/badges/4d281d68-3d40-4228-865d-e280c7703eaf"><img src="https://codebeat.co/badges/4d281d68-3d40-4228-865d-e280c7703eaf" alt="build pass" /></a>
-  <a href="https://travis-ci.com/liuyib/openSource-test.svg?branch=master"><img src="https://travis-ci.com/liuyib/openSource-test.svg?branch=master" alt="build pass" /></a>
-  <a href="https://codecov.io/gh/liuyib/openSource-test">
-    <img src="https://codecov.io/gh/liuyib/openSource-test/branch/master/graph/badge.svg" />
-  </a>
-</p>
+<div align="center">
+
+[![codebeat badge](https://codebeat.co/badges/4d281d68-3d40-4228-865d-e280c7703eaf)](https://codebeat.co/projects/github-com-liuyib-opensource-test-master)
+[![Build Status](https://travis-ci.org/liuyib/openSource-test.svg?branch=master)](https://travis-ci.org/liuyib/openSource-test)
+[![codecov](https://codecov.io/gh/liuyib/openSource-test/branch/master/graph/badge.svg)](https://codecov.io/gh/liuyib/openSource-test)
+
+</div>
 
 开源项目开发流程测试
 
