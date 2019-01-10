@@ -3,11 +3,13 @@ language: node_js
 node_js:
   - 10.15.0
 
+install:
+  - npm install -g codecov
+
 script:
   - npm run build
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
+  - codecov
 
 branches:
   only:
