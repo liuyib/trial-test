@@ -9,6 +9,9 @@ install:
 script:
   - codecov
 
+after_success:
+  - codecov #运行codecov
+
 branches:
   only:
     - master
