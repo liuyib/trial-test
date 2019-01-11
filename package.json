@@ -3,11 +3,27 @@
   "version": "0.0.2",
   "description": "开源项目开发流程测试",
   "main": "src/index.js",
+  "keywords": [
+    "opensource"
+  ],
+  "author": {
+    "name": "liuyibo",
+    "url": "https://github.com/liuyib"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liuyib/openSource-test.git"
+  },
+  "bugs": {
+    "url": "https://github.com/liuyib/openSource-test/issues"
+  },
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "test": "live-server"
   },
+  "homepage": "https://github.com/liuyib/openSource-test#readme",
   "babel": {
     "presets": [
       "es2015",
@@ -27,22 +43,6 @@
     ],
     "plugins": []
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/liuyib/openSource-test.git"
-  },
-  "keywords": [
-    "opensource"
-  ],
-  "author": {
-    "name": "liuyibo",
-    "url": "https://github.com/liuyib"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/liuyib/openSource-test/issues"
-  },
-  "homepage": "https://github.com/liuyib/openSource-test#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
