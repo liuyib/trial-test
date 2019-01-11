@@ -8,7 +8,7 @@ install:
 
 script:
   - codecov
-  - npm run test
+  - npm run build
 
 branches:
   only:
