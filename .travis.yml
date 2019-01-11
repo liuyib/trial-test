@@ -3,8 +3,12 @@ language: node_js
 node_js:
   - 10
 
+install:
+  - npm install -g codecov
+
 script:
-  - npm run build
+  - codecov
+  - npm run test
 
 branches:
   only:
