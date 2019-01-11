@@ -9,6 +9,7 @@ install:
 
 script:
   - npm run dev
+  - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
   - codecov
 
 after_success:
