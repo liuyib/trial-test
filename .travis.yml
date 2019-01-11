@@ -10,7 +10,7 @@ script:
   - codecov
 
 after_success:
-  - codecov #运行codecov
+  - bash <(curl -s https://codecov.io/bash)
 
 branches:
   only:
