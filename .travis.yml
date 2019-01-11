@@ -5,7 +5,8 @@ node_js:
 
 install:
   - npm install -g codecov
-  - npm install -D webpack webpack-cli
+  - npm install -D webpack
+  - npm install -D webpack-cli
 
 script:
   - npm run dev
