@@ -1,6 +1,8 @@
 language: node_js
 
 node_js:
+  - 8
+  - 9
   - 10
 
 install:
@@ -8,8 +10,7 @@ install:
   - npm i -D babel-core babel-loader@7 babel-polyfill babel-preset-es2015 babel-preset-env webpack webpack-cli
 
 script:
-  - npm run dev
-  - codecov
+  - npm run ci
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -cF javascript
