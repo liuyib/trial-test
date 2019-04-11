@@ -4,15 +4,10 @@ node_js:
   - 10
 
 install:
-  - npm install -g codecov
-  - npm i -D babel-core babel-loader@7 babel-polyfill babel-preset-es2015 babel-preset-env webpack webpack-cli
+  - npm install codecov --save-dev
 
 script:
-  - npm run dev
-  - codecov
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash) -cF javascript
+  - npm run ci
 
 branches:
   only:
