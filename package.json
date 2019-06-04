@@ -19,9 +19,12 @@
     "url": "https://github.com/liuyib/openSource-test/issues"
   },
   "scripts": {
-    "test": "webpack --mode development",
+    "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "ci": "istanbul cover ./node_modules/mocha/bin/_mocha ./test/ --report lcovonly -- -R spec && codecov"
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
+    "coveralls": "cat ./coverage/lcov/lcov.info | ./node_modules/.bin/coveralls",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "homepage": "https://github.com/liuyib/openSource-test#readme",
   "babel": {
@@ -41,6 +44,13 @@
         }
       ]
     ],
+    "env": {
+      "test": {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    },
     "plugins": []
   },
   "devDependencies": {
@@ -49,9 +59,13 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
-    "codecov": "^3.3.0",
+    "chai": "^4.2.0",
+    "codecov": "^3.5.0",
+    "coveralls": "^3.0.3",
     "istanbul": "^0.4.5",
     "mocha": "^6.1.2",
+    "should": "^13.2.3",
+    "vuepress": "^0.14.11",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.3.1"

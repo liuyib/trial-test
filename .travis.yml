@@ -3,11 +3,19 @@ language: node_js
 node_js:
   - 10
 
+# Travis-ci cache
+cache:
+  directories:
+    - node_modules
+
 install:
-  - npm install codecov --save-dev
+  - npm install
 
 script:
-  - npm run ci
+  - npm run coverage
+
+after_success:
+  - npm run coveralls
 
 branches:
   only:
