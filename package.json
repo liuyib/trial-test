@@ -22,7 +22,7 @@
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
-    "codecov": "cat ./coverage/lcov.info | ./node_modules/.bin/codecov",
+    "codecov": "cat ./coverage/lcov.info | ./node_modules/.bin/codecov | ./node_modules/.bin/coveralls",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
