@@ -15,7 +15,7 @@ script:
   - npm run coverage
 
 after_success:
-  - npm run coveralls
+  - npm run codecov
 
 branches:
   only:
