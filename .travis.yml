@@ -10,6 +10,8 @@ cache:
 
 install:
   - npm install
+  - npm install istanbul -g
+  - npm install codecov -g
 
 script:
   - npm run coverage
