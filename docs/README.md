@@ -1,26 +1,14 @@
-# 使用文档
-
-## 初始化
-
-```js
-var OST = window.OpenSourceTest;
-var test = new OST();
-```
-
-## 设置
-
-```js
-test.set('a', 100);
-```
-
-## 获取
-
-```js
-test.get('a')
-```
-
-## 清空
-
-```js
-test.clear()
-```
+---
+home: true
+heroImage: /stun-logo.png
+actionText: Get Started →
+actionLink: /use/
+features:
+  - title: Simplicity First
+    details: Minimal setup with markdown-centered project structure helps you focus on writing.
+  - title: Vue-Powered
+    details: Enjoy the dev experience of Vue + webpack, use Vue components in markdown, and develop custom themes with Vue.
+  - title: Performant
+    details: VuePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
+footer: MIT Licensed | Copyright © 2019-present liuyib
+---
