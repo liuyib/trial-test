@@ -1,7 +1,7 @@
 {
   "name": "opensource-test",
   "version": "0.0.2",
-  "description": "开源项目开发流程测试",
+  "description": "测试项目，踩坑专用",
   "main": "src/index.js",
   "keywords": [
     "opensource"
@@ -19,10 +19,11 @@
     "url": "https://github.com/liuyib/openSource-test/issues"
   },
   "scripts": {
+    "test": "./node_modules/.bin/mocha ./test/main.test.js",
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
-    "codecov": "cat ./coverage/lcov.info | ./node_modules/.bin/codecov",
+    "codecov": "cat ./coverage/lcov.info | ./node_modules/`.bin/codecov",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
@@ -61,7 +62,7 @@
     "babel-preset-es2015": "^6.24.1",
     "codecov": "^3.5.0",
     "istanbul": "^0.4.5",
-    "mocha": "^6.1.2",
+    "mocha": "^6.2.2",
     "should": "^13.2.3",
     "vuepress": "^0.14.11",
     "webpack": "^4.28.4",
