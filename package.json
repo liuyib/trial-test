@@ -21,9 +21,9 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha ./test/main.test.js",
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha",
+    "codecov": "cat ./coverage/lcov.info | ./node_modules/.bin/codecov",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "codecov": "cat ./coverage/lcov.info | ./node_modules/`.bin/codecov",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
