@@ -27,9 +27,10 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        publish_dir: ./dist
-        publish_branch: dist
-        github_token: ${{ secrets.MY_GITHUB_TOKEN }}
-        user_name: ${{ secrets.MY_USER_NAME }}
-        user_email: ${{ secrets.MY_USER_EMAIL }}
-        commit_message: Shake files that are used only in development
+        with:
+          publish_dir: ./dist
+          publish_branch: dist
+          github_token: ${{ secrets.MY_GITHUB_TOKEN }}
+          user_name: ${{ secrets.MY_USER_NAME }}
+          user_email: ${{ secrets.MY_USER_EMAIL }}
+          commit_message: Shake files that are used only in development
