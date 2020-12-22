@@ -1,5 +1,5 @@
 # Delete files that are used only in development.
-name: 'ShakeFiles'
+name: "ShakeFiles"
 
 on:
   push:
@@ -16,10 +16,9 @@ jobs:
       - name: Setup Node.js v12.x
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: "12.x"
 
       - name: Move files
-        id: move_files
         run: |
           mkdir ./dist
           mv src ./dist/src
@@ -27,6 +26,7 @@ jobs:
           mv .gitignore ./dist/.gitignore
 
       - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         publish_dir: ./dist
         publish_branch: dist
         github_token: ${{ secrets.MY_GITHUB_TOKEN }}
