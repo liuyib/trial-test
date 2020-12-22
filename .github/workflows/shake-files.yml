@@ -34,3 +34,4 @@ jobs:
           user_name: ${{ secrets.MY_USER_NAME }}
           user_email: ${{ secrets.MY_USER_EMAIL }}
           commit_message: Shake files that are used only in development
+          disable_nojekyll: true
