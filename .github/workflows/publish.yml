@@ -15,16 +15,17 @@ jobs:
         env:
           POST_TITLE: ${{ github.event.issue.title }}
           POST_BODY: ${{ github.event.issue.body }}
+          POST_PATH: source/_posts/$POST_TITLE.md
         run: |
           mkdir -p source/_posts/
-          touch source/_posts/$POST_TITLE.md
-          echo "---"                   >> source/index.md
-          echo "title: $POST_TITLE"    >> source/index.md
-          echo "date:"                 >> source/index.md
-          echo "tags:"                 >> source/index.md
-          echo "---"                   >> source/index.md
-          echo ""                      >> source/index.md
-          echo "$POST_BODY"            >> source/index.md
+          touch $POST_PATH
+          echo "---"                   >> $POST_PATH
+          echo "title: $POST_TITLE"    >> $POST_PATH
+          echo "date:"                 >> $POST_PATH
+          echo "tags:"                 >> $POST_PATH
+          echo "---"                   >> $POST_PATH
+          echo ""                      >> $POST_PATH
+          echo $POST_BODY              >> $POST_PATH
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
