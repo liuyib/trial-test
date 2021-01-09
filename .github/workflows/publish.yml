@@ -16,19 +16,19 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Set current date as env variable
-        run: echo "POST_DATE::$(date + '%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
+        run: echo "POST_DATE=$(date + '%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
 
       - name: Generate Post
         run: |
           mkdir -p source/_posts/
           touch $POST_PATH
-          echo "---"                   >> $POST_PATH
-          echo "title: $POST_TITLE"    >> $POST_PATH
-          echo "date: $POST_DATE"      >> $POST_PATH
-          echo "tags:"                 >> $POST_PATH
-          echo "---"                   >> $POST_PATH
-          echo ""                      >> $POST_PATH
-          echo $POST_BODY              >> $POST_PATH
+          echo "---"                         >> $POST_PATH
+          echo "title: $POST_TITLE"          >> $POST_PATH
+          echo "date: ${{ env.POST_DATE }}"  >> $POST_PATH
+          echo "tags:"                       >> $POST_PATH
+          echo "---"                         >> $POST_PATH
+          echo ""                            >> $POST_PATH
+          echo $POST_BODY                    >> $POST_PATH
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
