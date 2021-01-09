@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Set current date as env variable
-        run: echo "POST_DATE=$(date + '%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
+        run: echo "POST_DATE=$(date + %Y-%m-%d)" >> $GITHUB_ENV
 
       - name: Generate Post
         run: |
@@ -24,7 +24,7 @@ jobs:
           touch ${{ env.POST_PATH }}
           echo "---"                           >> ${{ env.POST_PATH }}
           echo "title: ${{ env.POST_TITLE }}"  >> ${{ env.POST_PATH }}
-          echo "date: ${{ env.POST_DATE }}"    >> ${{ env.POST_PATH }}
+          echo "date: ==${{ env.POST_DATE }}==--${{ date }}--"    >> ${{ env.POST_PATH }}
           echo "tags:"                         >> ${{ env.POST_PATH }}
           echo "---"                           >> ${{ env.POST_PATH }}
           echo ""                              >> ${{ env.POST_PATH }}
