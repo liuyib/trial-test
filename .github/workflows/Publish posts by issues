@@ -1,0 +1,41 @@
+name: Publish post from issue
+
+on:
+  issues:
+    types: ['labeled']
+
+jobs:
+  build:
+    if: ${{ github.event.label.name == 'publish' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Generate Post
+        env:
+          POST_TITLE: ${{ github.event.issue.title }}
+          POST_BODY: ${{ github.event.issue.body }}
+        run: |
+          mkdir -p source/_posts/
+          touch source/_posts/$POST_TITLE.md
+          echo "---"                   >> source/index.md
+          echo "title: $POST_TITLE"    >> source/index.md
+          echo "date:"                 >> source/index.md
+          echo "tags:"                 >> source/index.md
+          echo "---"                   >> source/index.md
+          echo ""                      >> source/index.md
+          echo "$POST_BODY"            >> source/index.md
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          delete-branch: true
+          title: "publish: ${{ github.event.issue.title}}"
+          body: |
+            Automagically sprouted for publishing.
+
+            Merging will publish to: https://github.com/liuyib/hexo-blog-source/source/_posts/${{ github.event.issue.title }}.md
+
+            Closes #${{ github.event.issue.number }}
+          reviewers: "${{ github.repository_owner }}"
+          commit-message: "post: ${{ github.event.issue.title }}"
