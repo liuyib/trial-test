@@ -4,6 +4,11 @@ on:
   issues:
     types: ['labeled']
 
+env:
+  POST_TITLE: ${{ github.event.issue.title }}
+  POST_BODY: ${{ github.event.issue.body }}
+  POST_PATH: source/_posts/${{ github.event.issue.title }}.md
+
 jobs:
   build:
     if: ${{ github.event.label.name == 'publish' }}
@@ -11,17 +16,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set current date as env variable
+        run: echo "POST_DATE::$(date + '%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
+
       - name: Generate Post
-        env:
-          POST_TITLE: ${{ github.event.issue.title }}
-          POST_BODY: ${{ github.event.issue.body }}
-          POST_PATH: source/_posts/$POST_TITLE.md
         run: |
           mkdir -p source/_posts/
           touch $POST_PATH
           echo "---"                   >> $POST_PATH
           echo "title: $POST_TITLE"    >> $POST_PATH
-          echo "date:"                 >> $POST_PATH
+          echo "date: $POST_DATE"      >> $POST_PATH
           echo "tags:"                 >> $POST_PATH
           echo "---"                   >> $POST_PATH
           echo ""                      >> $POST_PATH
@@ -31,12 +35,12 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           delete-branch: true
-          title: "publish: ${{ github.event.issue.title}}"
+          title: "publish: $POST_TITLE"
           body: |
             Automagically sprouted for publishing.
 
-            Merging will publish to: https://github.com/liuyib/hexo-blog-source/source/_posts/${{ github.event.issue.title }}.md
+            Merging will publish to: https://github.com/liuyib/hexo-blog-source/$POST_PATH
 
             Closes #${{ github.event.issue.number }}
           reviewers: "${{ github.repository_owner }}"
-          commit-message: "post: ${{ github.event.issue.title }}"
+          commit-message: "post: $POST_TITLE"
