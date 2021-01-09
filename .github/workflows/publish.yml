@@ -21,25 +21,25 @@ jobs:
       - name: Generate Post
         run: |
           mkdir -p source/_posts/
-          touch $POST_PATH
-          echo "---"                         >> $POST_PATH
-          echo "title: $POST_TITLE"          >> $POST_PATH
-          echo "date: ${{ env.POST_DATE }}"  >> $POST_PATH
-          echo "tags:"                       >> $POST_PATH
-          echo "---"                         >> $POST_PATH
-          echo ""                            >> $POST_PATH
-          echo $POST_BODY                    >> $POST_PATH
+          touch ${{ env.POST_PATH }}
+          echo "---"                           >> ${{ env.POST_PATH }}
+          echo "title: ${{ env.POST_TITLE }}"  >> ${{ env.POST_PATH }}
+          echo "date: ${{ env.POST_DATE }}"    >> ${{ env.POST_PATH }}
+          echo "tags:"                         >> ${{ env.POST_PATH }}
+          echo "---"                           >> ${{ env.POST_PATH }}
+          echo ""                              >> ${{ env.POST_PATH }}
+          echo ${{ env.POST_BODY }}            >> ${{ env.POST_PATH }}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
           delete-branch: true
-          title: "publish: $POST_TITLE"
+          title: 'publish: ${{ env.POST_TITLE }}'
           body: |
             Automagically sprouted for publishing.
 
-            Merging will publish to: https://github.com/liuyib/hexo-blog-source/$POST_PATH
+            Merging will publish to: https://github.com/liuyib/hexo-blog-source/${{ env.POST_PATH }}
 
             Closes #${{ github.event.issue.number }}
-          reviewers: "${{ github.repository_owner }}"
-          commit-message: "post: $POST_TITLE"
+          reviewers: '${{ github.repository_owner }}'
+          commit-message: 'post: ${{ env.POST_TITLE }}'
