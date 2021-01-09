@@ -4,15 +4,14 @@ on:
   issues:
     types: ['labeled']
 
-env:
-  POST_TITLE: ${{ github.event.issue.title }}
-  POST_BODY: ${{ github.event.issue.body }}
-  POST_PATH: source/_posts/${{ github.event.issue.title }}.md
-
 jobs:
   build:
     if: ${{ github.event.label.name == 'publish' }}
     runs-on: ubuntu-latest
+    env:
+      POST_TITLE: ${{ github.event.issue.title }}
+      POST_BODY: ${{ github.event.issue.body }}
+      POST_PATH: source/_posts/${{ github.event.issue.title }}.md
     steps:
       - uses: actions/checkout@v2
 
